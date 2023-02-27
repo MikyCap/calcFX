@@ -3,7 +3,17 @@ package com.capozzi.calcfx;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+/**
+ * TODO: Aggiungere i casi con gli operandi (Divisione e Moltiplicazione)
+ * TODO: Modificare segno scritto sulla label
+ * TODO: Aggiungere inizializzazione dai bottoni 4 a 9;
+ */
+
 public class CalcolatriceController {
+
+    boolean operandoInserito = false;
+    boolean pointClicked = false;
+
     @FXML
     private Label displayText;
 
@@ -14,18 +24,31 @@ public class CalcolatriceController {
 
     @FXML
     protected void onPointButtonClick() {
-        if (flagUguale == true) {
+
+
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
-        displayString = displayText.getText();
-        displayString = displayString + ".";
-        displayText.setText(displayString);
+
+        if (pointClicked){
+            displayText.setText(displayString);
+        }else{
+            displayString = displayText.getText();
+            displayString = displayString + ".";
+            displayText.setText(displayString);
+            pointClicked = true;
+        }
+
     }
 
     @FXML
     protected void on0ButtonClick() {
-        if (flagUguale == true) {
+
+        operandoInserito = false;
+        pointClicked = false;
+
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
@@ -36,7 +59,10 @@ public class CalcolatriceController {
 
     @FXML
     protected void on1ButtonClick() {
-        if (flagUguale == true) {
+        operandoInserito = false;
+        pointClicked = false;
+
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
@@ -47,7 +73,9 @@ public class CalcolatriceController {
 
     @FXML
     protected void on2ButtonClick() {
-        if (flagUguale == true) {
+        operandoInserito = false;
+        pointClicked = false;
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
@@ -58,7 +86,9 @@ public class CalcolatriceController {
 
     @FXML
     protected void on3ButtonClick() {
-        if (flagUguale == true) {
+        operandoInserito = false;
+        pointClicked = false;
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
@@ -69,7 +99,7 @@ public class CalcolatriceController {
 
     @FXML
     protected void on4ButtonClick() {
-        if (flagUguale == true) {
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
@@ -80,7 +110,7 @@ public class CalcolatriceController {
 
     @FXML
     protected void on5ButtonClick() {
-        if (flagUguale == true) {
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
@@ -91,7 +121,7 @@ public class CalcolatriceController {
 
     @FXML
     protected void on6ButtonClick() {
-        if (flagUguale == true) {
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
@@ -103,7 +133,7 @@ public class CalcolatriceController {
 
     @FXML
     protected void on7ButtonClick() {
-        if (flagUguale == true) {
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
@@ -114,7 +144,7 @@ public class CalcolatriceController {
 
     @FXML
     protected void on8ButtonClick() {
-        if (flagUguale == true) {
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
@@ -125,7 +155,7 @@ public class CalcolatriceController {
 
     @FXML
     protected void on9ButtonClick() {
-        if (flagUguale == true) {
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
@@ -138,51 +168,98 @@ public class CalcolatriceController {
     @FXML
     protected void onresetButtonClick() {
         displayText.setText("");
+        operandoInserito = false;
     }
 
     @FXML
     protected void onpiuButtonClick() {
-        if (flagUguale == true) {
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
-        displayString = displayText.getText();
-        displayString = displayString + "+";
-        displayText.setText(displayString);
+
+        if (pointClicked || operandoInserito){
+            displayText.setText(displayText.getText());
+        }else{
+            displayString = displayText.getText();
+            displayString = displayString + "+";
+            displayText.setText(displayString);
+            operandoInserito = true;
+        }
+
+
     }
 
     @FXML
     protected void onMenoButtonClick() {
-        if (flagUguale == true) {
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
-        displayString = displayText.getText();
-        displayString = displayString + "-";
-        displayText.setText(displayString);
+
+        if (pointClicked || operandoInserito){
+            displayText.setText(displayText.getText());
+        }else{
+            displayString = displayText.getText();
+            displayString = displayString + "+";
+            displayText.setText(displayString);
+            operandoInserito = true;
+        }
     }
 
     @FXML
     protected void onPerButtonClick() {
-        if (flagUguale == true) {
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
-        displayString = displayText.getText();
-        displayString = displayString + "*";
-        displayText.setText(displayString);
+
+        if (pointClicked || operandoInserito){
+            displayText.setText(displayText.getText());
+        }else{
+            displayString = displayText.getText();
+            displayString = displayString + "+";
+            displayText.setText(displayString);
+            operandoInserito = true;
+        }
     }
 
     @FXML
     protected void onDivButtonClick() {
-        if (flagUguale == true) {
+        if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
         }
-        displayString = displayText.getText();
-        displayString = displayString + "/";
-        displayText.setText(displayString);
+        if (pointClicked || operandoInserito){
+            displayText.setText(displayText.getText());
+        }else{
+            displayString = displayText.getText();
+            displayString = displayString + "+";
+            displayText.setText(displayString);
+            operandoInserito = true;
+        }
     }
 
+    private double operazione(double op1, double op2, char operando){
+
+        double risultato;
+
+        switch (operando){
+            case '+' -> risultato = op1+op2;
+            case '-' -> risultato = op1-op2;
+
+            default -> risultato = -1;
+        }
+
+        return risultato;
+    }
+
+    @FXML
+    protected void onUgualeButtonClick(){
+
+
+
+
+    }
 
 }
