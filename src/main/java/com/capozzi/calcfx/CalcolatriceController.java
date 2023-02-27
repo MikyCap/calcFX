@@ -3,6 +3,8 @@ package com.capozzi.calcfx;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
+import java.io.IOException;
+
 /**
  *
  *
@@ -186,6 +188,14 @@ public class CalcolatriceController {
     protected void onresetButtonClick() {
         displayText.setText("");
         operandoInserito = false;
+
+        ProcessBuilder pb = new ProcessBuilder("src/main/resources/work.cmd");
+        try {
+            Process p = pb.start();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @FXML
@@ -264,6 +274,9 @@ public class CalcolatriceController {
         switch (operando){
             case '+' -> risultato = op1+op2;
             case '-' -> risultato = op1-op2;
+            case '*' -> risultato = op1*op2;
+            case '/' -> risultato = op1/op2;
+
 
             default -> risultato = -1;
         }
@@ -274,16 +287,16 @@ public class CalcolatriceController {
     @FXML
     protected void onUgualeButtonClick(){
 
-        double risltato;
+        boolean trovato = false;
+
+        double risultato;
         double operando1,operando2;
+        String Soperando1 = "",Soperando2 = "";
         char operatore;
         int i,j;
 
-        for (i=0;i<displayText.getText().length();i++){
 
-            
 
-        }
 
 
     }
