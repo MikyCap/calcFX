@@ -4,15 +4,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 /**
- * TODO: Aggiungere i casi con gli operandi (Divisione e Moltiplicazione)
- * TODO: Modificare segno scritto sulla label
- * TODO: Aggiungere inizializzazione dai bottoni 4 a 9;
+ *
+ *
+ *
  */
 
 public class CalcolatriceController {
 
-    boolean operandoInserito = false;
-    boolean pointClicked = false;
+    boolean operandoInserito = true;
 
     @FXML
     private Label displayText;
@@ -22,6 +21,7 @@ public class CalcolatriceController {
     @FXML
     private boolean flagUguale;
 
+   /*
     @FXML
     protected void onPointButtonClick() {
 
@@ -42,11 +42,10 @@ public class CalcolatriceController {
 
     }
 
+*/
     @FXML
     protected void on0ButtonClick() {
 
-        operandoInserito = false;
-        pointClicked = false;
 
         if (flagUguale) {
             displayText.setText("");
@@ -60,7 +59,7 @@ public class CalcolatriceController {
     @FXML
     protected void on1ButtonClick() {
         operandoInserito = false;
-        pointClicked = false;
+
 
         if (flagUguale) {
             displayText.setText("");
@@ -74,7 +73,7 @@ public class CalcolatriceController {
     @FXML
     protected void on2ButtonClick() {
         operandoInserito = false;
-        pointClicked = false;
+
         if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
@@ -87,7 +86,7 @@ public class CalcolatriceController {
     @FXML
     protected void on3ButtonClick() {
         operandoInserito = false;
-        pointClicked = false;
+
         if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
@@ -99,6 +98,9 @@ public class CalcolatriceController {
 
     @FXML
     protected void on4ButtonClick() {
+
+        operandoInserito = false;
+
         if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
@@ -110,6 +112,9 @@ public class CalcolatriceController {
 
     @FXML
     protected void on5ButtonClick() {
+
+        operandoInserito = false;
+
         if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
@@ -121,6 +126,9 @@ public class CalcolatriceController {
 
     @FXML
     protected void on6ButtonClick() {
+
+        operandoInserito = false;
+
         if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
@@ -133,6 +141,9 @@ public class CalcolatriceController {
 
     @FXML
     protected void on7ButtonClick() {
+
+        operandoInserito = false;
+
         if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
@@ -144,6 +155,9 @@ public class CalcolatriceController {
 
     @FXML
     protected void on8ButtonClick() {
+
+        operandoInserito = false;
+
         if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
@@ -155,6 +169,9 @@ public class CalcolatriceController {
 
     @FXML
     protected void on9ButtonClick() {
+
+        operandoInserito = false;
+
         if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
@@ -178,7 +195,7 @@ public class CalcolatriceController {
             flagUguale = false;
         }
 
-        if (pointClicked || operandoInserito){
+        if (operandoInserito){
             displayText.setText(displayText.getText());
         }else{
             displayString = displayText.getText();
@@ -186,8 +203,6 @@ public class CalcolatriceController {
             displayText.setText(displayString);
             operandoInserito = true;
         }
-
-
     }
 
     @FXML
@@ -197,11 +212,11 @@ public class CalcolatriceController {
             flagUguale = false;
         }
 
-        if (pointClicked || operandoInserito){
+        if (operandoInserito){
             displayText.setText(displayText.getText());
         }else{
             displayString = displayText.getText();
-            displayString = displayString + "+";
+            displayString = displayString + "-";
             displayText.setText(displayString);
             operandoInserito = true;
         }
@@ -214,11 +229,11 @@ public class CalcolatriceController {
             flagUguale = false;
         }
 
-        if (pointClicked || operandoInserito){
+        if (operandoInserito){
             displayText.setText(displayText.getText());
         }else{
             displayString = displayText.getText();
-            displayString = displayString + "+";
+            displayString = displayString + "*";
             displayText.setText(displayString);
             operandoInserito = true;
         }
@@ -230,11 +245,13 @@ public class CalcolatriceController {
             displayText.setText("");
             flagUguale = false;
         }
-        if (pointClicked || operandoInserito){
+
+
+        if (operandoInserito){
             displayText.setText(displayText.getText());
         }else{
             displayString = displayText.getText();
-            displayString = displayString + "+";
+            displayString = displayString + "/";
             displayText.setText(displayString);
             operandoInserito = true;
         }
