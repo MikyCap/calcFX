@@ -189,6 +189,8 @@ public class CalcolatriceController {
         displayText.setText("");
         operandoInserito = false;
 
+        //Ciao
+
         ProcessBuilder pb = new ProcessBuilder("src/main/resources/work.cmd");
         try {
             Process p = pb.start();
