@@ -62,7 +62,7 @@
          <Button maxHeight="50.0" maxWidth="60.0" mnemonicParsing="false" onAction="#onpiuButtonClick" style="-fx-border-color: black; -fx-background-color: #B2FFFF;" text="+" GridPane.columnIndex="3" GridPane.rowIndex="4" />
          <Button maxHeight="50.0" maxWidth="60.0" mnemonicParsing="false" style="-fx-border-color: black; -fx-background-color: YELLOW;" text="+/-" GridPane.rowIndex="5" />
          <Button maxHeight="50.0" maxWidth="60.0" mnemonicParsing="false" onAction="#on0ButtonClick" style="-fx-border-color: black; -fx-background-color: lime;" text="0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-         <Button maxHeight="50.0" maxWidth="60.0" mnemonicParsing="false" onAction="#onPointButtonClick" style="-fx-border-color: black; -fx-background-color: YELLOW;" text="." GridPane.columnIndex="2" GridPane.rowIndex="5" />
+         <Button maxHeight="50.0" maxWidth="60.0" mnemonicParsing="false" style="-fx-border-color: black; -fx-background-color: YELLOW;" text="." GridPane.columnIndex="2" GridPane.rowIndex="5" />
          <Button maxHeight="50.0" maxWidth="60.0" mnemonicParsing="false" onAction="#onUgualeButtonClick" style="-fx-border-color: black; -fx-background-color: pink;" text="=" GridPane.columnIndex="3" GridPane.rowIndex="5" />
       </children>
    </GridPane>
