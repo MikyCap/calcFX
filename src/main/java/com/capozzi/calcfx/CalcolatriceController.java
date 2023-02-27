@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class CalcolatriceController {
 
-    boolean operandoInserito = true;
+    boolean operandoInserito = false;
 
     @FXML
     private Label displayText;
@@ -48,7 +48,6 @@ public class CalcolatriceController {
     @FXML
     protected void on0ButtonClick() {
 
-
         if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
@@ -60,8 +59,6 @@ public class CalcolatriceController {
 
     @FXML
     protected void on1ButtonClick() {
-        operandoInserito = false;
-
 
         if (flagUguale) {
             displayText.setText("");
@@ -74,7 +71,7 @@ public class CalcolatriceController {
 
     @FXML
     protected void on2ButtonClick() {
-        operandoInserito = false;
+
 
         if (flagUguale) {
             displayText.setText("");
@@ -87,7 +84,7 @@ public class CalcolatriceController {
 
     @FXML
     protected void on3ButtonClick() {
-        operandoInserito = false;
+
 
         if (flagUguale) {
             displayText.setText("");
@@ -101,7 +98,7 @@ public class CalcolatriceController {
     @FXML
     protected void on4ButtonClick() {
 
-        operandoInserito = false;
+
 
         if (flagUguale) {
             displayText.setText("");
@@ -115,7 +112,7 @@ public class CalcolatriceController {
     @FXML
     protected void on5ButtonClick() {
 
-        operandoInserito = false;
+
 
         if (flagUguale) {
             displayText.setText("");
@@ -129,7 +126,7 @@ public class CalcolatriceController {
     @FXML
     protected void on6ButtonClick() {
 
-        operandoInserito = false;
+
 
         if (flagUguale) {
             displayText.setText("");
@@ -144,8 +141,6 @@ public class CalcolatriceController {
     @FXML
     protected void on7ButtonClick() {
 
-        operandoInserito = false;
-
         if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
@@ -158,8 +153,6 @@ public class CalcolatriceController {
     @FXML
     protected void on8ButtonClick() {
 
-        operandoInserito = false;
-
         if (flagUguale) {
             displayText.setText("");
             flagUguale = false;
@@ -171,8 +164,6 @@ public class CalcolatriceController {
 
     @FXML
     protected void on9ButtonClick() {
-
-        operandoInserito = false;
 
         if (flagUguale) {
             displayText.setText("");
@@ -188,7 +179,6 @@ public class CalcolatriceController {
     protected void onresetButtonClick() {
         displayText.setText("");
         operandoInserito = false;
-
     }
 
     @FXML
@@ -200,6 +190,7 @@ public class CalcolatriceController {
 
         if (operandoInserito){
             displayText.setText(displayText.getText());
+            onUgualeButtonClick();
         }else{
             displayString = displayText.getText();
             displayString = displayString + "+";
@@ -217,6 +208,7 @@ public class CalcolatriceController {
 
         if (operandoInserito){
             displayText.setText(displayText.getText());
+            onUgualeButtonClick();
         }else{
             displayString = displayText.getText();
             displayString = displayString + "-";
@@ -234,6 +226,7 @@ public class CalcolatriceController {
 
         if (operandoInserito){
             displayText.setText(displayText.getText());
+            onUgualeButtonClick();
         }else{
             displayString = displayText.getText();
             displayString = displayString + "*";
@@ -252,6 +245,7 @@ public class CalcolatriceController {
 
         if (operandoInserito){
             displayText.setText(displayText.getText());
+            onUgualeButtonClick();
         }else{
             displayString = displayText.getText();
             displayString = displayString + "/";
@@ -260,33 +254,59 @@ public class CalcolatriceController {
         }
     }
 
-    private double operazione(double op1, double op2, char operando){
-
-        double risultato;
-
-        switch (operando){
-            case '+' -> risultato = op1+op2;
-            case '-' -> risultato = op1-op2;
-            case '*' -> risultato = op1*op2;
-            case '/' -> risultato = op1/op2;
-
-
-            default -> risultato = -1;
-        }
-
-        return risultato;
-    }
 
     @FXML
     protected void onUgualeButtonClick(){
 
         boolean trovato = false;
 
-        double risultato;
+        double risultato = 0;
         double operando1,operando2;
         String Soperando1 = "",Soperando2 = "";
-        char operatore;
+
+        int indexOperatore = 0;
+        char operatore = '+';
         int i,j;
+
+        if (!operandoInserito){
+            displayText.setText(displayText.getText());
+        }else{
+            for (i=0;i<displayString.length();i++){
+                switch (displayString.charAt(i)) {
+                    case '+', '-', '*', '/' -> {
+                        operatore = displayString.charAt(i);
+                        indexOperatore = i;
+                    }
+                }
+            }
+
+            for (i=0;i<indexOperatore;i++){
+                Soperando1 += displayString.charAt(i);
+            }
+
+            for (i=indexOperatore+1;i<displayText.getText().length();i++){
+                Soperando2 += displayString.charAt(i);
+            }
+
+            operando1= Double.parseDouble(Soperando1);
+            operando2 = Double.parseDouble(Soperando2);
+
+            switch (operatore){
+                case '+' -> risultato = operando1 + operando2;
+                case '-' -> risultato = operando1 - operando2;
+                case '*' -> risultato = operando1 * operando2;
+                case '/' -> risultato = operando1 / operando2;
+                default -> risultato =0;
+            }
+
+            operandoInserito = false;
+            displayText.setText(String.valueOf(risultato));
+
+        }
+
+
+
+
 
 
 
