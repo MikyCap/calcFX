@@ -274,7 +274,16 @@ public class CalcolatriceController {
     @FXML
     protected void onUgualeButtonClick(){
 
+        double risltato;
+        double operando1,operando2;
+        char operatore;
+        int i,j;
 
+        for (i=0;i<displayText.getText().length();i++){
+
+            
+
+        }
 
 
     }
